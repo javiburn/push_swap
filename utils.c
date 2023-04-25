@@ -1,29 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 16:31:36 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 14:27:22 by jsarabia         ###   ########.fr       */
+/*   Created: 2023/04/25 13:55:20 by jsarabia          #+#    #+#             */
+/*   Updated: 2023/04/25 14:24:17 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
-void	free_matrix(char **str)
+int	*char_to_int(char **arr)
 {
 	int	y;
+	int	*arrnum;
 
 	y = 0;
-	while (str[y])
-		free(str[y++]);
-	free(str);
+	while (arr[y])
+		y++;
+	arrnum = ft_calloc(y, sizeof(int));
+	y = 0;
+	while (arr[y])
+	{
+		arrnum[y] = ft_atoi(arr[y]);
+		y++;
+	}
+	return (arrnum);
 }
 
-void	free_chunk(t_chunk chunk)
+char	**int_to_char(int *num)
 {
-	free_matrix(chunk.arr_ordered);
-	free_matrix(chunk.num_arr);
+	char	**newarr;
+	int		y;
+
+	y = 0;
+	while (num[y])
+		y++;
+	newarr = ft_calloc(y, sizeof(char *));
+	y = 0;
+	while (num[y])
+	{
+		newarr[y] = ft_itoa(num[y]);
+		y++;
+	}
+	return (newarr);
 }

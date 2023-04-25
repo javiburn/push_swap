@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:35:13 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 12:38:17 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:01:47 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	*check_int(char **values, int argc)
 
 	y = 0;
 	temp = NULL;
-	nums = ft_calloc(argc + 1, sizeof(int));
+	nums = ft_calloc(argc, sizeof(int));
 	while (y < argc)
 	{
 		if (ft_strlen(values[y]) > 11)

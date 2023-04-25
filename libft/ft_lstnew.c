@@ -6,13 +6,13 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:47:46 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/12 15:58:21 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:25:38 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(char *content)
 {
 	t_list	*nodo;
 

@@ -6,11 +6,82 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:13:55 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 12:27:25 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:30:38 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
+
+int	*reverse(int *ptr)
+{
+	int	in;
+	int	end;
+	int	len;
+	int	aux;
+
+	in = 0;
+	end = 0;
+	while (ptr[end] != '\0')
+		end++;
+	end = end - 1;
+	len = end;
+	while (in < len / 2)
+	{
+		aux = ptr[in];
+		ptr[in] = ptr[end];
+		ptr[end] = aux;
+		in++;
+		end--;
+	}
+	return (ptr);
+}
+
+int	*ordering(int *order, int pos, int n, int argc)
+{
+	int	aux;
+	int	place;
+
+	place = 0;
+	aux = -2147483648;
+	while (place < argc)
+	{
+		while (n < argc)
+		{
+			if (order[n] > aux)
+			{
+				aux = order[n];
+				pos = n;
+			}
+			n++;
+		}
+		order[pos] = order[place];
+		order[place] = aux;
+		place++;
+		n = place;
+		aux = -2147483648;
+	}
+	order = reverse(order);
+	return (order);
+}
+
+t_chunk	order_nums(t_chunk chunk)
+{
+	int	n;
+	int	pos;
+	int	*nums;
+
+	n = 0;
+	nums = NULL;
+	if (!chunk.arr_ordered || !nums)
+		return (chunk);
+	nums = char_to_int(chunk.num_arr);
+	pos = 0;
+	nums = ordering(nums, pos, n, chunk.argcs);
+	chunk.average = nums[chunk.argcs/2];
+	chunk.arr_ordered = int_to_char(nums);
+	free(nums);
+	return (chunk);
+}
 
 char	**create_values(int argc, char **argv, char **values)
 {
@@ -34,3 +105,22 @@ char	**create_values(int argc, char **argv, char **values)
 	values = val;
 	return (values);
 }
+
+t_chunk	stack_init(t_chunk chunk)
+{
+	int		n;
+	t_list	*nodo;
+
+	n = 0;
+	chunk.stack_a = ft_lstnew(chunk.num_arr[n]);
+	n++;
+	while (n < chunk.argcs)
+	{
+		nodo = ft_lstnew(chunk.num_arr[n]);
+		ft_lstadd_back(&chunk.stack_a, nodo);
+		n++;
+	}
+	chunk.stack_b = NULL;
+	return (chunk);
+}
+
