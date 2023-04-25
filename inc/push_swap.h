@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:47:27 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/20 17:56:00 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 12:02:50 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_chunk
 	int				*arr_ordered;
 }					t_chunk;
 
-char	**create_values(int argc, char **argv);
+char	**create_values(int argc, char **argv, char **values);
 int		check(char **values, int argc);
 int		*check_int(char **values, int argc);
 t_chunk	order_nums(int *nums, int argc, t_chunk chunk);
@@ -61,6 +61,7 @@ t_chunk	sb(t_chunk chunk);
 t_chunk	rb(t_chunk chunk);
 t_chunk	rrb(t_chunk chunk);
 t_chunk	sort_b(t_chunk chunk);
+void	free_matrix(char **str);
 
 //int		check_nums(char **values, int argc);
 /*

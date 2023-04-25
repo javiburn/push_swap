@@ -6,11 +6,23 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:41:24 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/18 13:07:35 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/24 17:01:12 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+char	**ft_free(char **ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i])
+		free(ptr[i++]);
+	free(ptr);
+	return (NULL);
+}
 
 static int	ft_count(const char *s, char c)
 {
@@ -33,7 +45,7 @@ static int	ft_count(const char *s, char c)
 	return (slices + 1);
 }
 
-static char	*ft_sent(const char *s, int len, int n)
+static char	*ft_sent(const char *s, int len, int n, char **ptr)
 {
 	char	*str;
 	size_t	i;
@@ -46,7 +58,7 @@ static char	*ft_sent(const char *s, int len, int n)
 		str = (char *)malloc((size_t)len * sizeof(char) + 1);
 		if (str == 0)
 		{
-			free(str);
+			ft_free(ptr);
 			return (NULL);
 		}
 		while (i < (size_t)len)
@@ -80,7 +92,7 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	ptr = ft_pt(s, c);
 	if (!ptr || ft_count(s, c) == 1)
-		return (NULL);
+		return (ft_free(ptr));
 	len = 0;
 	while (i < (size_t)ft_count(s, c) && n + len <= ft_strlen((char *)s))
 	{
@@ -88,7 +100,7 @@ char	**ft_split(const char *s, char c)
 			len++;
 		else if ((s[n + len] == c || s[n + len] == '\0') && len > 0)
 		{
-			ptr[i++] = ft_sent(s, len, n);
+			ptr[i++] = ft_sent(s, len, n, ptr);
 			n = n + len;
 			len = 0;
 		}
