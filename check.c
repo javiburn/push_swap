@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:35:13 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 12:27:14 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 12:38:17 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ static int	check_nums(char **values, int argc)
 
 	i = 1;
 	n = 0;
-	if ((!ft_atoi(values[n]) && !values[1]) || (!ft_atoi(values[n])
-			&& !(values[n][0] == '0' && ft_strlen(values[n]) == 1)))
+	if ((!ft_atoi(values[n]) && !(values[n][0] == '0'
+			&& ft_strlen(values[n]) == 1)))
 		return (0);
 	while (n < argc)
 	{

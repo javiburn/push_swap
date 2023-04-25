@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:05:58 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 12:27:07 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 12:35:54 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	main(int argc, char **argv)
 	chunk.argcs = check_argc(values);
 	if (!values || !check(values, chunk.argcs))
 		return (print_int_error("Error!\nInvalid numbers\n", values));
-	ft_printf("Todo OK Jose Luis\n");
+	chunk.num_arr = check_int(values, chunk.argcs);
+	ft_printf("%d\n", chunk.num_arr[0]);
 	exit(0);
 	return (0);
 }
