@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:55:20 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 14:24:17 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:55:41 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,14 @@ char	**int_to_char(int *num)
 		y++;
 	}
 	return (newarr);
+}
+
+t_list	*ptr_prev_last(t_list *ptr)
+{
+	t_list	*prev;
+
+	prev = ptr;
+	while (prev->next->next != NULL)
+		prev = prev->next;
+	return (prev);
 }
