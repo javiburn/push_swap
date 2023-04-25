@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:05:58 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 17:09:46 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:30:04 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	t_chunk	chunk;
 	char	**values;
 
-	//atexit(leaks);
+	atexit(leaks);
 	values = NULL;
 	if (argc < 2)
 		return (print_arg_error
