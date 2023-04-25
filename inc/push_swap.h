@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:47:27 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 14:27:36 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 16:18:50 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_chunk	stack_init(t_chunk chunk);
 int		print_arg_error(char *str);
 int		print_int_error(char *str, char **values);
 int		print_list(t_chunk chunk);
+t_chunk	algorithm(t_chunk chunk);
 t_chunk	movements(t_chunk chunk, int argc);
 t_chunk	movements_b(t_chunk chunk);
 int		is_sorted(t_chunk chunk);

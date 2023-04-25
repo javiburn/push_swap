@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:05:58 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 14:31:25 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:09:46 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	t_chunk	chunk;
 	char	**values;
 
-	atexit(leaks);
+	//atexit(leaks);
 	values = NULL;
 	if (argc < 2)
 		return (print_arg_error
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	chunk.num_arr = create_array(values, chunk.argcs);
 	chunk = order_nums(chunk);
 	chunk = stack_init(chunk);
-	ft_printf("stack_a: %s\n", chunk.stack_a->next->content);
+	chunk = algorithm(chunk);
 	exit(0);
 	return (0);
 }
