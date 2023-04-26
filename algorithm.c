@@ -6,11 +6,33 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:56:05 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 18:42:25 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/26 12:22:12 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
+
+t_chunk	conditions(t_chunk chunk, t_list *prev, t_list *last)
+{
+	while (!is_sorted(chunk))
+	{
+		if (ft_atoi(chunk.stack_a->content)
+			> ft_atoi(last->content) && ft_atoi((chunk.stack_a->content))
+			> ft_atoi(prev->content))
+			return (ra(chunk));
+		if (ft_atoi(chunk.stack_a->content)
+			> ft_atoi(chunk.stack_a->next->content))
+			return (sa(chunk));
+		if (ft_atoi(prev->content)
+			> ft_atoi(last->content)
+			|| ft_atoi(chunk.stack_a->content)
+			< ft_atoi(prev->content))
+			return (rra(chunk));
+		else
+			return (chunk);
+	}
+	return (chunk);
+}
 
 t_chunk	movements_six(t_chunk chunk)
 {
@@ -25,20 +47,14 @@ t_chunk	movements_six(t_chunk chunk)
 
 t_chunk	movements_three(t_chunk chunk)
 {
+	t_list	*prev;
+	t_list	*last;
+
+	prev = ptr_prev_last(chunk.stack_a);
+	last = prev->next;
 	while (!is_sorted(chunk))
-	{
-		if (ft_atoi(chunk.stack_a->content)
-			> ft_atoi(chunk.stack_a->next->content))
-			return (sa(chunk));
-		if (ft_atoi(ptr_prev_last(chunk.stack_a)->content)
-			> ft_atoi(ft_lstlast(chunk.stack_a)->content)
-			|| ft_atoi(chunk.stack_a->content)
-			< ft_atoi(ft_lstlast(chunk.stack_a)->content))
-			return (rra(chunk));
-		else if (ft_atoi(chunk.stack_a->content)
-			> ft_atoi(ft_lstlast(chunk.stack_a)->content))
-			return (ra(chunk));
-	}
+		chunk = conditions(chunk, prev, last);
+	exit(0);
 	return (chunk);
 }
 
