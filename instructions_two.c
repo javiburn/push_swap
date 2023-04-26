@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:48:47 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/26 15:02:46 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:47:06 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ t_chunk	ra(t_chunk chunk)
 {
 	t_list	*new;
 
-	new = ft_lstnew(chunk.stack_a->content);
-	*chunk.stack_a = *chunk.stack_a->next;
+	new = chunk.stack_a;
 	ft_lstadd_back(&chunk.stack_a, new);
+	chunk.stack_a = chunk.stack_a->next;
+	new->next = NULL;
 	write(1, "ra\n", 3);
 	return (chunk);
 }
@@ -65,14 +66,11 @@ t_chunk	rra(t_chunk chunk)
 	t_list	*new;
 	t_list	*aux;
 
-	aux = NULL;
-	new = ft_lstnew(ft_lstlast(chunk.stack_a)->content);
+	new = ft_lstlast(chunk.stack_a);
+	aux = ptr_prev_last(chunk.stack_a);
 	ft_lstadd_front(&chunk.stack_a, new);
-	chunk.stack_a = new;
-	aux = chunk.stack_a;
-	while (aux->next->next != NULL)
-		aux = aux->next;
 	aux->next = NULL;
+	chunk.stack_a = new;
 	write(1, "rra\n", 4);
 	return (chunk);
 }
