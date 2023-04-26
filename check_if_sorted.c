@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:38:41 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 16:53:50 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:22:32 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	stack_b_sorted(t_chunk chunk)
 			return (0);
 		help = help->next;
 	}
+	free(help);
 	return (1);
 }
 
@@ -45,9 +46,9 @@ int	stack_a_sorted(t_chunk chunk)
 
 int	is_sorted(t_chunk chunk)
 {
-	if (chunk.stack_b != NULL || !stack_a_sorted(chunk))
+	if (chunk.stack_b || !stack_a_sorted(chunk))
 		return (0);
-	if (chunk.stack_b == NULL && stack_a_sorted(chunk))
+	if (!chunk.stack_b && stack_a_sorted(chunk))
 		return (1);
 	return (1);
 }

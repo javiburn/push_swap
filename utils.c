@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:55:20 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 17:55:41 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:26:35 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 int	*char_to_int(char **arr)
 {
 	int	y;
+	int	aux;
 	int	*arrnum;
 
 	y = 0;
+	aux = 0;
 	while (arr[y])
 		y++;
 	arrnum = ft_calloc(y, sizeof(int));
-	y = 0;
-	while (arr[y])
+	while (aux < y - 1)
 	{
-		arrnum[y] = ft_atoi(arr[y]);
-		y++;
+		arrnum[aux] = ft_atoi(arr[aux]);
+		aux++;
 	}
 	return (arrnum);
 }
@@ -34,16 +35,17 @@ char	**int_to_char(int *num)
 {
 	char	**newarr;
 	int		y;
+	int		aux;
 
 	y = 0;
+	aux = 0;
 	while (num[y])
 		y++;
-	newarr = ft_calloc(y, sizeof(char *));
-	y = 0;
-	while (num[y])
+	newarr = ft_calloc(y - 1, sizeof(char *));
+	while (aux < y - 1)
 	{
-		newarr[y] = ft_itoa(num[y]);
-		y++;
+		newarr[aux] = ft_itoa(num[aux]);
+		aux++;
 	}
 	return (newarr);
 }

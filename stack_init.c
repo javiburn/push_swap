@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:13:55 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/25 14:30:38 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:26:24 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	*reverse(int *ptr)
 		end++;
 	end = end - 1;
 	len = end;
-	while (in < len / 2)
+	while (in <= len / 2)
 	{
 		aux = ptr[in];
 		ptr[in] = ptr[end];
@@ -77,7 +77,7 @@ t_chunk	order_nums(t_chunk chunk)
 	nums = char_to_int(chunk.num_arr);
 	pos = 0;
 	nums = ordering(nums, pos, n, chunk.argcs);
-	chunk.average = nums[chunk.argcs/2];
+	chunk.average = nums[chunk.argcs/2 - 1];
 	chunk.arr_ordered = int_to_char(nums);
 	free(nums);
 	return (chunk);
@@ -103,6 +103,7 @@ char	**create_values(int argc, char **argv, char **values)
 		y++;
 	}
 	values = val;
+	free_matrix(val);
 	return (values);
 }
 
@@ -120,6 +121,7 @@ t_chunk	stack_init(t_chunk chunk)
 		ft_lstadd_back(&chunk.stack_a, nodo);
 		n++;
 	}
+	free(nodo);
 	chunk.stack_b = NULL;
 	return (chunk);
 }
