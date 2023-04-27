@@ -6,17 +6,24 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:48:47 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 18:30:04 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 19:10:31 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
-/*
+
 t_chunk	rb(t_chunk chunk)
 {
+	t_list	*aux;
 
+	aux = chunk.stack_b;
+	chunk.stack_b = chunk.stack_b->next;
+	aux->next = NULL;
+	ft_lstlast(chunk.stack_b)->next = aux;
+	write(1, "rb\n", 3);
+	return (chunk);
 }
-*/
+
 t_chunk	sb(t_chunk chunk)
 {
 	t_list	*aux;
@@ -38,6 +45,7 @@ t_chunk	sa(t_chunk chunk)
 	aux->next = aux->next->next;
 	chunk.stack_a->next = aux;
 	write(1, "sa\n", 3);
+	print_list(chunk);
 	return (chunk);
 }
 
