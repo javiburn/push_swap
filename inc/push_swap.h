@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:47:27 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 16:06:50 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:01:15 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int		stack_a_sorted(t_chunk chunk);
 int		stack_b_sorted(t_chunk chunk);
 t_list	*ptr_prev_last(t_list *ptr);
 int		array_num(t_chunk chunk);
-t_chunk	pa( t_chunk chunk);
+t_chunk	sa(t_chunk chunk);
+/*t_chunk	pa( t_chunk chunk);
 t_chunk	pb(t_chunk chunk);
 t_chunk	ss(t_list *stack_a, t_list *stack_b, t_chunk chunk);
 t_chunk	rr(t_chunk chunk);
@@ -63,7 +64,7 @@ t_chunk	rra(t_chunk chunk);
 t_chunk	sb(t_chunk chunk);
 t_chunk	rb(t_chunk chunk);
 t_chunk	rrb(t_chunk chunk);
-t_chunk	sort_b(t_chunk chunk);
+t_chunk	sort_b(t_chunk chunk);*/
 void	free_matrix(char **str);
 void	free_chunk(t_chunk chunk);
 void	free_nodes(t_chunk chunk);

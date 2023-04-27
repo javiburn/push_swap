@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:13:55 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 16:13:40 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:11:08 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,22 @@ char	**create_values(int argc, char **argv, char **values)
 	val = ft_split(argv[1], ' ');
 	if (argc == 2 && val != NULL)
 		return (val);
+	if (argc == 2 && ft_atoi(argv[1]))
+	{
+		val = ft_calloc(2, sizeof(char *));
+		val[0] = ft_substr(argv[y + 1], 0, ft_strlen(argv[y + 1]));
+		values = val;
+		return (values);
+	}
 	if (val && argc > 2)
 		free_matrix(val);
 	val = ft_calloc(argc, sizeof(char *));
-	if (!val)
-		free_matrix(val);
 	while (argv[y + 1] != '\0')
 	{
 		val[y] = ft_substr(argv[y + 1], 0, ft_strlen(argv[y + 1]));
 		y++;
 	}
 	values = val;
-	free_matrix(val);
 	return (values);
 }
 
@@ -116,7 +120,8 @@ t_chunk	stack_init(t_chunk chunk)
 		ft_lstadd_back(&chunk.stack_a, nodo);
 		n++;
 	}
-	free(nodo);
+	if (n != 1)
+		free(nodo);
 	chunk.stack_b = NULL;
 	return (chunk);
 }

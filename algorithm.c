@@ -6,12 +6,12 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:56:05 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 15:46:04 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:02:56 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
-
+/*
 t_chunk	pass_to_b(t_chunk chunk)
 {
 	int		in;
@@ -65,7 +65,7 @@ t_chunk	conditions_b(t_chunk chunk)
 	else
 		return (rrb(chunk));
 	return (chunk);
-}
+}*/
 
 t_chunk	movements_three(t_chunk chunk)
 {
@@ -73,7 +73,7 @@ t_chunk	movements_three(t_chunk chunk)
 		&& ft_atoi(chunk.stack_a->content)
 		< ft_atoi(ft_lstlast(chunk.stack_a)->content))
 		return (sa(chunk));
-	if (ft_atoi(chunk.stack_a->content) > ft_atoi(chunk.stack_a->next->content)
+	/*if (ft_atoi(chunk.stack_a->content) > ft_atoi(chunk.stack_a->next->content)
 		&& ft_atoi(chunk.stack_a->next->content)
 		> ft_atoi(ft_lstlast(chunk.stack_a)->content))
 	{
@@ -92,10 +92,10 @@ t_chunk	movements_three(t_chunk chunk)
 		return (ra(chunk));
 	}
 	else
-		return (rra(chunk));
+		return (rra(chunk));*/
 	return (chunk);
 }
-
+/*
 t_chunk	movements_six(t_chunk chunk)
 {
 	while (ft_lstsize(chunk.stack_a) > 3)
@@ -108,15 +108,15 @@ t_chunk	movements_six(t_chunk chunk)
 		chunk = pa(chunk);
 	return (chunk);
 }
-
+*/
 t_chunk	algorithm(t_chunk chunk)
 {
 	if (is_sorted(chunk))
 		return (chunk);
 	if (chunk.argcs <= 3)
 		return (movements_three(chunk));
-	if (chunk.argcs <= 6)
-		return (movements_six(chunk));
+	/*if (chunk.argcs <= 6)
+		return (movements_six(chunk));*/
 /*
 	if (chunk.argcs > 10)
 		return (chunk);*/
