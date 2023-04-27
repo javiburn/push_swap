@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:13:55 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/26 15:26:24 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:27:31 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ t_chunk	order_nums(t_chunk chunk)
 
 	n = 0;
 	nums = NULL;
-	if (!chunk.arr_ordered || !nums)
-		return (chunk);
 	nums = char_to_int(chunk.num_arr);
 	pos = 0;
 	nums = ordering(nums, pos, n, chunk.argcs);

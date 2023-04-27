@@ -6,29 +6,65 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:56:05 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/26 17:52:19 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:56:13 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
+t_chunk	pass_to_b(t_chunk chunk)
+{
+	int		in;
+	t_list	*aux;
+
+	aux = chunk.stack_a;
+	in = 0;
+	while (aux != NULL)
+	{
+		if (ft_atoi(aux->content) <= chunk.average)
+			break ;
+		aux = aux->next;
+		in++;
+	}
+	aux = chunk.stack_a;
+	if (in < chunk.argcs / 2)
+	{
+		while (ft_atoi(chunk.stack_a->content) > chunk.average)
+			chunk = ra(chunk);
+		return (pb(chunk));
+	}
+	while (ft_atoi(chunk.stack_a->content) > chunk.average)
+		chunk = rra(chunk);
+	return (pb(chunk));
+
+}
+
 t_chunk	conditions_b(t_chunk chunk)
 {
-	if (ft_atoi(chunk.stack_b->content)
-		< ft_atoi(ft_lstlast(chunk.stack_b)->content)
-		&& ft_atoi((chunk.stack_b->content))
-		<ft_atoi(ptr_prev_last(chunk.stack_b)->content))
-		return (rb(chunk));
-	if (ft_atoi(chunk.stack_b->content)
-		< ft_atoi(chunk.stack_b->next->content))
+	if (ft_atoi(chunk.stack_b->content) < ft_atoi(chunk.stack_b->next->content)
+		&& ft_atoi(chunk.stack_b->content)
+		> ft_atoi(ft_lstlast(chunk.stack_b)->content))
 		return (sb(chunk));
-	if (ft_atoi(ptr_prev_last(chunk.stack_b)->content)
-		< ft_atoi(ft_lstlast(chunk.stack_b)->content)
-		|| ft_atoi(chunk.stack_b->content)
-		> ft_atoi(ptr_prev_last(chunk.stack_b)->content))
+	if (ft_atoi(chunk.stack_b->content) < ft_atoi(chunk.stack_b->next->content)
+		&& ft_atoi(chunk.stack_b->next->content)
+		< ft_atoi(ft_lstlast(chunk.stack_b)->content))
+	{
+		chunk = sb(chunk);
 		return (rrb(chunk));
+	}
+	if (ft_atoi(chunk.stack_b->content) < ft_atoi(chunk.stack_b->next->content)
+		&& ft_atoi(chunk.stack_b->content)
+		< ft_atoi(ft_lstlast(chunk.stack_b)->content))
+		return (rb(chunk));
+	if (ft_atoi(chunk.stack_b->content) > ft_atoi(chunk.stack_b->next->content)
+		&& ft_atoi(chunk.stack_b->content)
+		> ft_atoi(ft_lstlast(chunk.stack_b)->content))
+	{
+		chunk = sb(chunk);
+		return (rb(chunk));
+	}
 	else
-		return (chunk);
+		return (rrb(chunk));
 	return (chunk);
 }
 
@@ -60,43 +96,30 @@ t_chunk	movements_three(t_chunk chunk)
 		return (rra(chunk));
 	return (chunk);
 }
-/*
+
 t_chunk	movements_six(t_chunk chunk)
 {
-	int	n;
-
-	n = 0;
-	while (!is_sorted(chunk) || chunk.stack_b)
-	{
-		//print_list(chunk);
-		if (stack_a_sorted(chunk) && chunk.stack_b && stack_b_sorted(chunk))
-			return (pa(chunk));
-		chunk = conditions(chunk);
-		if (ft_atoi(chunk.stack_a->content) <= chunk.average
-			&& ft_lstsize(chunk.stack_a) > chunk.argcs/2
-			&& ft_lstsize(chunk.stack_a) > 3)
-			return (pb(chunk));
-		if (chunk.stack_b && !stack_b_sorted(chunk))
-			chunk = conditions_b(chunk);
-		if (stack_a_sorted(chunk) && chunk.stack_b)
-			return (pa(chunk));
-	}
-	exit(0);
+	while (ft_lstsize(chunk.stack_a) > 3)
+		chunk = pass_to_b(chunk);
+	if (!stack_a_sorted(chunk))
+		chunk = movements_three(chunk);
+	if (!stack_b_sorted(chunk))
+		chunk = conditions_b(chunk);
+	while (ft_lstsize(chunk.stack_b) > 0)
+		chunk = pa(chunk);
 	return (chunk);
-}*/
+}
 
 t_chunk	algorithm(t_chunk chunk)
 {
-	if (chunk.argcs <= 3)
-		return(movements_three(chunk));
-/*
-	if (chunk.argcs <= 6)
-	{
-		while (!is_sorted(chunk))
-			chunk = movements_six(chunk);
+	if (is_sorted(chunk))
 		return (chunk);
-	}
-		 //vamos a pasar un número que va a ser i, que será el que determine el valor del size que vamos a pasar al stack_b
+	if (chunk.argcs <= 3)
+		return (movements_three(chunk));
+
+	if (chunk.argcs <= 6)
+		return (movements_six(chunk));
+/*
 	if (chunk.argcs > 10)
 		return (chunk);*/
 	return (chunk);

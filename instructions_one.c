@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:42:59 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/26 15:00:19 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:32:28 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,47 +15,46 @@
 t_chunk	pa(t_chunk chunk)
 {
 	t_list	*new;
+	t_list	*add;
 
-	new = ft_lstnew(chunk.stack_b->content);
+	new = ft_lstnew(ft_lstlast(chunk.stack_b)->content);
+	add = ft_lstnew(chunk.stack_b->content);
 	write(1, "pa\n", 3);
-	if (!chunk.stack_a)
-	{
-		ft_lstadd_front(&chunk.stack_a, new);
-		chunk.stack_a = new;
-		chunk.stack_b = chunk.stack_b->next;
+	if (!chunk.stack_b)
 		return (chunk);
-	}
-	if (chunk.stack_b->next == NULL)
+	if (!chunk.stack_b->next)
 	{
-		ft_lstadd_front(&chunk.stack_a, new);
-		chunk.stack_a = new;
+		ft_lstadd_front(&chunk.stack_a, add);
+		chunk.stack_a = add;
 		chunk.stack_b = NULL;
 		return (chunk);
 	}
-	*chunk.stack_b = *chunk.stack_b->next;
-	ft_lstadd_front(&chunk.stack_a, new);
-	*chunk.stack_a = *new;
+	free(chunk.stack_b);
+	chunk.stack_b = chunk.stack_b->next;
+	ft_lstadd_front(&chunk.stack_a, add);
 	return (chunk);
 }
 
 t_chunk	pb(t_chunk chunk)
 {
 	t_list	*new;
+	t_list	*add;
 
-	new = ft_lstnew(chunk.stack_a->content);
+	new = ft_lstnew(ft_lstlast(chunk.stack_a)->content);
+	add = ft_lstnew(chunk.stack_a->content);
+	write(1, "pb\n", 3);
 	if (!chunk.stack_a)
 		return (chunk);
 	if (!chunk.stack_a->next)
 	{
-		ft_lstadd_front(&chunk.stack_b, new);
-		chunk.stack_b = new;
+		ft_lstadd_front(&chunk.stack_b, add);
+		chunk.stack_b = add;
 		chunk.stack_a = NULL;
 		return (chunk);
 	}
-	*chunk.stack_a = *chunk.stack_a->next;
-	ft_lstadd_front(&chunk.stack_b, new);
-	*chunk.stack_b = *new;
-	write(1, "pb\n", 3);
+	free(chunk.stack_a);
+	chunk.stack_a = chunk.stack_a->next;
+	ft_lstadd_front(&chunk.stack_b, add);
 	return (chunk);
 }
 
