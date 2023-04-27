@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:47:27 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/26 12:09:22 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:06:50 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct s_chunk
 char	**create_values(int argc, char **argv, char **values);
 int		check(char **values, int argc);
 int		*check_int(char **values, int argc);
-int		*char_to_int(char **arr);
-char	**int_to_char(int *num);
+int		*char_to_int(char **arr, int num);
+char	**int_to_char(int *num, int n);
 t_chunk	order_nums(t_chunk chunk);
 t_chunk	stack_init(t_chunk chunk);
 int		print_arg_error(char *str);

@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:56:05 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 14:56:13 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:46:04 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ t_chunk	pass_to_b(t_chunk chunk)
 	while (ft_atoi(chunk.stack_a->content) > chunk.average)
 		chunk = rra(chunk);
 	return (pb(chunk));
-
 }
 
 t_chunk	conditions_b(t_chunk chunk)
@@ -116,7 +115,6 @@ t_chunk	algorithm(t_chunk chunk)
 		return (chunk);
 	if (chunk.argcs <= 3)
 		return (movements_three(chunk));
-
 	if (chunk.argcs <= 6)
 		return (movements_six(chunk));
 /*

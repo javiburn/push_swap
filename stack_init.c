@@ -6,13 +6,13 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:13:55 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 14:27:31 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:13:40 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
-int	*reverse(int *ptr)
+int	*reverse(int *ptr, int argc)
 {
 	int	in;
 	int	end;
@@ -20,10 +20,7 @@ int	*reverse(int *ptr)
 	int	aux;
 
 	in = 0;
-	end = 0;
-	while (ptr[end] != '\0')
-		end++;
-	end = end - 1;
+	end = argc - 1;
 	len = end;
 	while (in <= len / 2)
 	{
@@ -60,7 +57,7 @@ int	*ordering(int *order, int pos, int n, int argc)
 		n = place;
 		aux = -2147483648;
 	}
-	order = reverse(order);
+	order = reverse(order, argc);
 	return (order);
 }
 
@@ -72,11 +69,11 @@ t_chunk	order_nums(t_chunk chunk)
 
 	n = 0;
 	nums = NULL;
-	nums = char_to_int(chunk.num_arr);
+	nums = char_to_int(chunk.num_arr, chunk.argcs);
 	pos = 0;
 	nums = ordering(nums, pos, n, chunk.argcs);
 	chunk.average = nums[chunk.argcs/2 - 1];
-	chunk.arr_ordered = int_to_char(nums);
+	chunk.arr_ordered = int_to_char(nums, chunk.argcs);
 	free(nums);
 	return (chunk);
 }
@@ -123,4 +120,3 @@ t_chunk	stack_init(t_chunk chunk)
 	chunk.stack_b = NULL;
 	return (chunk);
 }
-
