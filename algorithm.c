@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:56:05 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 17:02:56 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:14:56 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ t_chunk	movements_three(t_chunk chunk)
 		&& ft_atoi(chunk.stack_a->content)
 		< ft_atoi(ft_lstlast(chunk.stack_a)->content))
 		return (sa(chunk));
-	/*if (ft_atoi(chunk.stack_a->content) > ft_atoi(chunk.stack_a->next->content)
+	if (ft_atoi(chunk.stack_a->content) > ft_atoi(chunk.stack_a->next->content)
 		&& ft_atoi(chunk.stack_a->next->content)
 		> ft_atoi(ft_lstlast(chunk.stack_a)->content))
 	{
 		chunk = sa(chunk);
 		return (rra(chunk));
-	}
+	}/*
 	if (ft_atoi(chunk.stack_a->content) > ft_atoi(chunk.stack_a->next->content)
 		&& ft_atoi(chunk.stack_a->content)
 		> ft_atoi(ft_lstlast(chunk.stack_a)->content))

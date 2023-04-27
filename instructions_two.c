@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:48:47 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 17:29:31 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:30:04 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_chunk	rb(t_chunk chunk)
 */
 t_chunk	sb(t_chunk chunk)
 {
-		t_list	*aux;
+	t_list	*aux;
 
 	aux = chunk.stack_b;
 	chunk.stack_b = chunk.stack_b->next;
@@ -41,14 +41,31 @@ t_chunk	sa(t_chunk chunk)
 	return (chunk);
 }
 
-/*
 t_chunk	ra(t_chunk chunk)
 {
+	t_list	*aux;
 
+	aux = chunk.stack_a;
+	chunk.stack_a = chunk.stack_a->next;
+	aux->next = NULL;
+	ft_lstlast(chunk.stack_a)->next = aux;
+	write(1, "ra\n", 3);
+	return (chunk);
 }
 
 t_chunk	rra(t_chunk chunk)
 {
+	t_list	*aux;
+	t_list	*prev;
+	t_list	*last;
 
+	aux = chunk.stack_a;
+	prev = ptr_prev_last(aux);
+	last = ft_lstlast(chunk.stack_a);
+	prev->next = NULL;
+	chunk.stack_a = last;
+	chunk.stack_a->next = aux;
+	write(1, "rra\n", 4);
+	return (chunk);
 }
-*/
+

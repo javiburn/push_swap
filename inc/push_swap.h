@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:47:27 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 17:01:15 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:16:47 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		stack_b_sorted(t_chunk chunk);
 t_list	*ptr_prev_last(t_list *ptr);
 int		array_num(t_chunk chunk);
 t_chunk	sa(t_chunk chunk);
+t_chunk	rra(t_chunk chunk);
 /*t_chunk	pa( t_chunk chunk);
 t_chunk	pb(t_chunk chunk);
 t_chunk	ss(t_list *stack_a, t_list *stack_b, t_chunk chunk);
