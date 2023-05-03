@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:47:27 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 18:45:22 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:33:59 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	free_matrix(char **str);
 void	free_chunk(t_chunk chunk);
 void	free_nodes(t_chunk chunk);
 char	**create_array(char **values, int argc);
+t_chunk	movements_undefined(t_chunk chunk, int num);
+t_chunk	movements_undefined_b(t_chunk chunk);
 
 //int		check_nums(char **values, int argc);
 /*

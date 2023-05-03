@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:56:05 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 13:18:30 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:32:27 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,10 @@ t_chunk	algorithm(t_chunk chunk)
 		return (movements_three(chunk));
 	if (chunk.argcs <= 6)
 		return (movements_six(chunk));
-/*
-	if (chunk.argcs > 10)
-		return (chunk);*/
+	if (chunk.argcs < 50)
+	{
+		chunk = movements_undefined(chunk, 5);
+		return (movements_undefined_b(chunk));
+	}
 	return (chunk);
 }
