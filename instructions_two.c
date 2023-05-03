@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:48:47 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 19:10:31 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:18:19 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ t_chunk	sa(t_chunk chunk)
 	aux->next = aux->next->next;
 	chunk.stack_a->next = aux;
 	write(1, "sa\n", 3);
-	print_list(chunk);
 	return (chunk);
 }
 

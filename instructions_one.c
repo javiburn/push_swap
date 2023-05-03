@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:42:59 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 19:12:02 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:18:05 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 t_chunk	pa(t_chunk chunk)
 {
 	t_list	*aux;
+	t_list	*aux_two;
 
 	write(1, "pa\n", 3);
 	aux = chunk.stack_b;
-	aux->next = NULL;
-	ft_lstadd_front(&chunk.stack_a, aux);
-	if (!chunk.stack_b->next)
-		chunk.stack_b = NULL;
-	if (chunk.stack_b->next)
-		chunk.stack_b = chunk.stack_b->next;
+	aux_two = chunk.stack_a;
+	if (!aux->next)
+		aux = NULL;
+	if (aux && aux->next)
+		aux = aux->next;
+	chunk.stack_b->next = NULL;
+	ft_lstadd_front(&aux_two, chunk.stack_b);
+	chunk.stack_a = chunk.stack_b;
+	chunk.stack_b = aux;
 	return (chunk);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:38:41 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 14:16:36 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:51:52 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ int	stack_b_sorted(t_chunk chunk)
 
 	if (!chunk.stack_b)
 		return (1);
-	help = ft_lstnew(chunk.stack_b->content);
-	*help = *chunk.stack_b;
+	help = chunk.stack_b;
 	while (help->next != NULL)
 	{
 		if (ft_atoi(help->content) < ft_atoi(help->next->content))
 			return (0);
 		help = help->next;
 	}
-	free(help);
 	return (1);
 }
 
