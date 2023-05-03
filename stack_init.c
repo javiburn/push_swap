@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:13:55 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/04/27 18:11:08 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:37:13 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,6 @@ t_chunk	stack_init(t_chunk chunk)
 		ft_lstadd_back(&chunk.stack_a, nodo);
 		n++;
 	}
-	if (n != 1)
-		free(nodo);
 	chunk.stack_b = NULL;
 	return (chunk);
 }

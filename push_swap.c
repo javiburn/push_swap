@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:05:58 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 13:19:07 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:37:19 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	chunk = order_nums(chunk);
 	chunk = stack_init(chunk);
 	chunk = algorithm(chunk);
-	//print_list(chunk);
+	print_list(chunk);
 	exit(0);
 	return (0);
 }
