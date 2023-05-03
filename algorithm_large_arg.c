@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:43:34 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 14:37:17 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:58:40 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_chunk	find_optimus(t_chunk chunk, int num)
 	chunk.opt_bot = 0;
 	chunk = pos_optimus_ending(chunk, aux_back, i, num);
 	chunk.pos_opt_bot = ft_lstsize(chunk.stack_a) - chunk.pos_opt_bot;
-	if (chunk.opt_top == i + num && chunk.opt_bot == i + num)
+	if (ft_lstsize(chunk.stack_b) == num + i)
 	{
 		i += num;
 		return (chunk);
