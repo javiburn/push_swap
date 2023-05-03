@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:43:34 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 15:27:23 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:46:27 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ t_chunk	find_bot(t_chunk chunk, t_list *aux_back, int i, int laps, int n, int nu
 	{
 		while (laps++ < n)
 			aux_back = aux_back->next;
+		if (num + i > chunk.argcs)
+			num = chunk.argcs - i - 1;
 		while (aux_back != NULL)
 		{
-			while (chunk.opt_bot < num + i && chunk.arr_ordered[chunk.opt_bot])
+			while (chunk.opt_bot < num + i)
 			{
 				if (aux_back->content == chunk.arr_ordered[chunk.opt_bot])
 					return (chunk);
@@ -35,6 +37,7 @@ t_chunk	find_bot(t_chunk chunk, t_list *aux_back, int i, int laps, int n, int nu
 		aux_back = chunk.stack_a;
 		chunk.pos_opt_bot = n + 1;
 	}
+	chunk.opt_bot = num + i;
 	return (chunk);
 }
 
@@ -54,10 +57,11 @@ t_chunk	pos_optimus_ending(t_chunk chunk, t_list *aux_back, int i, int num)
 t_chunk	pos_optimus_initial(t_chunk chunk, t_list *aux, int i, int num)
 {
 	chunk.pos_opt_top = 0;
+	if (num + i > chunk.argcs)
+		num = chunk.argcs - i - 1;
 	while (aux != NULL)
 	{
-		while (chunk.opt_top < num + i
-			&& ft_atoi(chunk.arr_ordered[chunk.opt_top]))
+		while (chunk.opt_top <= num + i)
 		{
 			if (ft_atoi(aux->content)
 				== ft_atoi(chunk.arr_ordered[chunk.opt_top]))
@@ -68,6 +72,7 @@ t_chunk	pos_optimus_initial(t_chunk chunk, t_list *aux, int i, int num)
 		chunk.opt_top = 0;
 		chunk.pos_opt_top++;
 	}
+	chunk.opt_top = num + i;
 	return (chunk);
 }
 
@@ -84,7 +89,8 @@ t_chunk	find_optimus(t_chunk chunk, int num)
 	chunk.opt_bot = 0;
 	chunk = pos_optimus_ending(chunk, aux_back, i, num);
 	chunk.pos_opt_bot = ft_lstsize(chunk.stack_a) - chunk.pos_opt_bot;
-	if (ft_lstsize(chunk.stack_b) == num + i)
+	if ((ft_lstsize(chunk.stack_b) >= num + i && num + i <= chunk.argcs)
+		|| chunk.pos_opt_bot > ft_lstsize(chunk.stack_a) / 2)
 	{
 		i += num;
 		return (chunk);
@@ -103,7 +109,10 @@ t_chunk	movements_undefined(t_chunk chunk, int num)
 		if (ft_lstsize(chunk.stack_a) == 1)
 			return (pb(chunk));
 		chunk = find_optimus(chunk, num);
-		if (chunk.optimus == ft_atoi(chunk.arr_ordered[chunk.opt_top])
+		if (chunk.stack_b && chunk.optimus == ft_atoi(chunk.stack_b->content))
+			chunk = find_optimus(chunk, num);
+		if (chunk.arr_ordered[chunk.opt_top]
+			&& chunk.optimus == ft_atoi(chunk.arr_ordered[chunk.opt_top])
 			&& chunk.pos_opt_top <= chunk.pos_opt_bot)
 		{
 			if (chunk.pos_opt_top == 0)
@@ -116,7 +125,8 @@ t_chunk	movements_undefined(t_chunk chunk, int num)
 			else
 				chunk = ra(chunk);
 		}
-		if (chunk.optimus == ft_atoi(chunk.arr_ordered[chunk.opt_bot]))
+		else if (chunk.arr_ordered[chunk.opt_bot]
+			&& chunk.optimus == ft_atoi(chunk.arr_ordered[chunk.opt_bot]))
 			chunk = rra(chunk);
 	}
 	return (chunk);

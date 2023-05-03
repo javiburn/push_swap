@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:13:55 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 14:09:58 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:03:36 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ char	**create_values(int argc, char **argv, char **values)
 		y++;
 	}
 	values = val;
+	free(val);
 	return (values);
 }
 
