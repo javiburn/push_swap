@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:43:34 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 14:58:40 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:27:23 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_chunk	find_bot(t_chunk chunk, t_list *aux_back, int i, int laps, int n, int nu
 		aux_back = chunk.stack_a;
 		chunk.pos_opt_bot = n + 1;
 	}
-	chunk.opt_bot = num;
 	return (chunk);
 }
 
@@ -69,7 +68,6 @@ t_chunk	pos_optimus_initial(t_chunk chunk, t_list *aux, int i, int num)
 		chunk.opt_top = 0;
 		chunk.pos_opt_top++;
 	}
-	chunk.opt_top = num;
 	return (chunk);
 }
 
