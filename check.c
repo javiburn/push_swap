@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:35:13 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/04 15:07:22 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:42:32 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ int	*check_int(char **values, int argc)
 	nums = ft_calloc(argc, sizeof(int));
 	while (y < argc)
 	{
-		if (ft_strlen(values[y]) > 11)
+		if ((ft_strlen(values[y]) > 11)
+			|| (ft_strncmp(values[y], "2147483647", 11) > 0
+				&& ft_strlen(values[y]) >= 10)
+			|| (ft_strncmp(values[y], "-2147483648", 12) > 0
+				&& ft_strlen(values[y]) >= 11))
+		{
+			free(nums);
 			return (NULL);
-		if (ft_strncmp(values[y], "2147483647", 11) > 0
-			&& ft_strlen(values[y]) >= 10)
-			return (NULL);
-		if (ft_strncmp(values[y], "-2147483648", 12) > 0
-			&& ft_strlen(values[y]) >= 11)
-			return (NULL);
+		}
 		nums[y] = ft_atoi(values[y]);
 		if (!nums[y] && (values[y][0] != '0' && ft_strlen(values[y]) != 1))
 			return (NULL);
