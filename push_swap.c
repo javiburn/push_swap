@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:05:58 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/04 14:32:30 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:48:22 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,11 @@ static int	check_argc(char **values)
 	return (n);
 }
 
-void	leaks()
-{
-	system("leaks -q push_swap");
-}
-
 int	main(int argc, char **argv)
 {
 	t_chunk	chunk;
 	char	**values;
 
-	atexit(leaks);
 	values = NULL;
 	if (argc < 2)
 		return (print_arg_error
@@ -48,7 +42,6 @@ int	main(int argc, char **argv)
 	chunk = stack_init(chunk);
 	chunk = algorithm(chunk);
 	free_matrix(values);
-	//print_list(chunk);
 	exit(0);
 	return (0);
 }

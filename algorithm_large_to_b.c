@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:33:06 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 14:35:28 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:38:31 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,8 @@ t_chunk	find_optimus_b(t_chunk chunk, int i)
 	return (chunk);
 }
 
-t_chunk	movements_undefined_b(t_chunk chunk)
+t_chunk	movements_undefined_b(t_chunk chunk, int i)
 {
-	int	i;
-
-	i = chunk.argcs - 1;
 	while (ft_lstsize(chunk.stack_b) >= 0 && i >= 0)
 	{
 		chunk = find_optimus_b(chunk, i);
