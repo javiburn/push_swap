@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:35:13 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/04 12:33:09 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:11:22 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	*check_int(char **values, int argc)
 		y++;
 	}
 	temp = nums;
-	//free(nums);
 	return (temp);
 }
 
@@ -100,5 +99,7 @@ int	check(char **values, int argc)
 		return (0);
 	if (!check_repeat(nums, argc))
 		return (0);
+	if (nums)
+		free(nums);
 	return (1);
 }

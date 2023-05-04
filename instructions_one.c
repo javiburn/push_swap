@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:42:59 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 13:18:05 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:06:17 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,3 @@ t_chunk	pb(t_chunk chunk)
 	ft_lstadd_front(&chunk.stack_b, aux);
 	return (chunk);
 }
-/*
-t_chunk	ss(t_list *stack_a, t_list *stack_b, t_chunk chunk)
-{
-
-}
-
-t_chunk	rr(t_chunk chunk)
-{
-
-}
-
-t_chunk	rrr(t_chunk chunk)
-{
-
-}
-*/
