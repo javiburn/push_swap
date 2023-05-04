@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:47:27 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 14:33:59 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:25:29 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ typedef struct s_chunk
 	char			**num_arr;
 	char			**arr_ordered;
 }					t_chunk;
+
+typedef struct s_data
+{
+	int	laps;
+	int	n;
+	int	num;
+}		t_data;
+
 
 char	**create_values(int argc, char **argv, char **values);
 int		check(char **values, int argc);
