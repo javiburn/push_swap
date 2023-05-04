@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:35:13 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/03 15:28:22 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:33:09 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ static int	check_repeat(int *num, int argc)
 		while (i < argc)
 		{
 			if (num[n] == num[i])
-			{
-				ft_printf("n(%d): %d, i(%d): %d\n", n, num[n], i, num[i]);
 				return (0);
-			}
 			i++;
 		}
 		n++;
