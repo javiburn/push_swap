@@ -29,6 +29,9 @@ pb - push the first element at the top of Stack A to the top of Stack B
 
 
 
+
+
+
 The algorithm should be able to identify which of these instructions is the best one in order to do the least amount of moves and print it. 
 
 It is able to sort 100 random moves in less than 900 instructions, and a list of 500 numbers in less than 8000
