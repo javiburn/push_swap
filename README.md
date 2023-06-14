@@ -44,6 +44,9 @@ Then it will start comparing where the numbers of the first chunk are and it wil
 
 By doing this repeatidly, we will have the first 10 numbers on the stack B. The won't be sorted yet, but this will be done later.
 
+<img width="1006" alt="Screen Shot 2023-06-14 at 5 27 00 PM" src="https://github.com/javiburn/push_swap/assets/72255876/746e6036-067d-425c-88df-a5fd117e406c">
+
+
 We will do the same until we have every number from stack A into stack B.
 
 Now it will be the time to send them back to stack A sorting them using rb and rrb just before doing pb. As we have divided the numbers into chunks, and the chunks have been effectively sorted, each number will be sent back to stack A using a maximum of 10 moves each.
