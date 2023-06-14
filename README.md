@@ -49,14 +49,14 @@ By doing this repeatidly, we will have the first 10 numbers on the stack B. The 
 
 We will do the same until we have every number from stack A into stack B.
 
+<img width="918" alt="Screen Shot 2023-06-14 at 5 31 15 PM" src="https://github.com/javiburn/push_swap/assets/72255876/67736f0e-9536-4e53-9791-f443de72f438">
+
+
 Now it will be the time to send them back to stack A sorting them using rb and rrb just before doing pb. As we have divided the numbers into chunks, and the chunks have been effectively sorted, each number will be sent back to stack A using a maximum of 10 moves each.
 
 
+<img width="986" alt="Screen Shot 2023-06-14 at 5 32 15 PM" src="https://github.com/javiburn/push_swap/assets/72255876/8641029e-66c2-4dbc-8714-20bce8ff1005">
 
 
 
-
-
-The algorithm should be able to identify which of these instructions is the best one in order to do the least amount of moves and print it. 
-
-It is able to sort 100 random moves in less than 900 instructions, and a list of 500 numbers in less than 8000
+This algorithm is able to sort 100 random number in less than 900 instructions, and a list of 500 numbers in less than 8000.
