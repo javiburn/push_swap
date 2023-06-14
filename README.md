@@ -32,7 +32,7 @@ pb - push the first element at the top of Stack A to the top of Stack B
 
 # Algorithm `Optimus Prime 🤖`
 
-As you can tell from its name (inspired by the Transformer [Optimus Prime](https://es.wikipedia.org/wiki/Optimus_Prime)), this algorithm is designed to find which is the most optimus number to be sent to the other stack using the least amount of movements.
+As you can tell from its name (inspired by the Transformer [Optimus Prime](https://en.wikipedia.org/wiki/Optimus_Prime)), this algorithm is designed to find which is the most optimus number to be sent to the other stack using the least amount of movements.
 
 <img width="963" alt="Screen Shot 2023-06-14 at 5 27 19 PM" src="https://github.com/javiburn/push_swap/assets/72255876/d9bdada6-448e-4aed-a3ad-3146f13b66e5">
 
